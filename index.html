@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engineering Student Portfolio</title> <!-- CUSTOMIZE: Replace with your name -->
+    
+    <!-- Tailwind CSS for modern responsive styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Custom Tailwind theme setup for Engineering palette
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            900: '#0F172A',
+                            800: '#1E293B',
+                            700: '#334155',
+                        },
+                        accent: {
+                            blue: '#0EA5E9',  // Electric blue accent
+                            cyan: '#06B6D4',  // Cyan highlighting
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Custom subtle scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0F172A;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0EA5E9;
+        }
+    </style>
+</head>
+<body class="bg-navy-900 text-slate-200 antialiased selection:bg-accent-blue selection:text-white">
+
+    <!-- NAVIGATION BAR -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-navy-900/90 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo / Brand Name -->
+                <a href="#hero" class="flex items-center space-x-2 text-xl font-bold text-white hover:text-accent-blue transition-colors">
+                    <i class="fa-solid font-mono text-accent-blue">< / ></i>
+                    <span>Alex Morgan</span> <!-- CUSTOMIZE: Your Name -->
+                    <span class="text-xs px-2 py-0.5 rounded bg-accent-blue/10 text-accent-blue border border-accent-blue/20">Eng '28</span>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex space-x-8 text-sm font-medium">
+                    <a href="#about" class="hover:text-accent-blue transition-colors">About</a>
+                    <a href="#projects" class="hover:text-accent-blue transition-colors">Projects</a>
+                    <a href="#skills" class="hover:text-accent-blue transition-colors">Skills & AI</a>
+                    <a href="#goals" class="hover:text-accent-blue transition-colors">Career Goals</a>
+                    <a href="#contact" class="hover:text-accent-blue transition-colors">Contact</a>
+                </nav>
+
+                <!-- Action Button -->
+                <div class="hidden md:block">
+                    <a href="#contact" class="px-4 py-2 text-sm font-semibold text-white bg-accent-blue rounded-lg hover:bg-sky-500 transition-all shadow-lg shadow-accent-blue/20">
+                        Get In Touch
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="menu-btn" class="md:hidden text-slate-300 hover:text-white focus:outline-none">
+                    <i class="fa-solid fa-bars text-xl" id="menu-icon"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-navy-800 border-b border-slate-700 px-4 pt-2 pb-4 space-y-3 text-base font-medium">
+            <a href="#about" class="block hover:text-accent-blue py-1">About</a>
+            <a href="#projects" class="block hover:text-accent-blue py-1">Projects</a>
+            <a href="#skills" class="block hover:text-accent-blue py-1">Skills & AI</a>
+            <a href="#goals" class="block hover:text-accent-blue py-1">Career Goals</a>
+            <a href="#contact" class="block hover:text-accent-blue py-1">Contact</a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="min-h-screen flex items-center justify-center pt-24 pb-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        <!-- Background decorative gradient glow -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-accent-blue/10 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-slate-800/80 border border-slate-700 text-xs font-semibold text-accent-cyan mb-6">
+                <span class="w-2 h-2 rounded-full bg-accent-cyan animate-pulse"></span>
+                <span>First-Year Engineering Student</span>
+            </div>
+
+            <h1 class="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-tight mb-6">
+                Engineering Ideas into <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent-blue to-accent-cyan">Impactful Reality</span>
+            </h1>
+
+            <p class="text-lg sm:text-xl text-slate-400 mb-8 max-w-2xl mx-auto leading-relaxed">
+                <!-- CUSTOMIZE: Brief tagline about your passion -->
+                Passionate about sustainable design, automation, and applying computational tools to solve real-world physical engineering challenges.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#projects" class="w-full sm:w-auto px-6 py-3 rounded-lg bg-accent-blue hover:bg-sky-500 text-white font-semibold transition-all shadow-lg shadow-accent-blue/25 flex items-center justify-center space-x-2">
+                    <span>View Academic Work</span>
+                    <i class="fa-solid fa-arrow-right text-xs"></i>
+                </a>
+                <a href="#about" class="w-full sm:w-auto px-6 py-3 rounded-lg border border-slate-700 hover:border-slate-500 text-slate-300 hover:text-white font-semibold transition-all bg-navy-800/50">
+                    Learn About Me
+                </a>
+            </div>
+
+            <!-- Quick stats / links bar -->
+            <div class="mt-16 pt-8 border-t border-slate-800/80 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                <div>
+                    <span class="text-2xl font-bold text-white">B.S. Eng</span>
+                    <p class="text-xs text-slate-400">Targeting Class of '28</p>
+                </div>
+                <div>
+                    <span class="text-2xl font-bold text-accent-cyan">3.9/4.0</span>
+                    <p class="text-xs text-slate-400">Current GPA</p> <!-- CUSTOMIZE -->
+                </div>
+                <div>
+                    <span class="text-2xl font-bold text-white">4+</span>
+                    <p class="text-xs text-slate-400">Coursework Projects</p>
+                </div>
+                <div>
+                    <span class="text-2xl font-bold text-accent-blue">AI Fluent</span>
+                    <p class="text-xs text-slate-400">Modern Workflow</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT ME SECTION -->
+    <section id="about" class="py-20 bg-navy-800/40 border-t border-slate-800">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-xs font-semibold text-accent-blue tracking-widest uppercase mb-2">Background</h2>
+                <p class="text-3xl font-bold text-white">About Me & Engineering Focus</p>
+            </div>
+
+            <div class="grid md:grid-cols-12 gap-8 items-center">
+                <!-- Profile visual / image container -->
+                <div class="md:col-span-5 flex justify-center">
+                    <div class="relative group">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-accent-blue to-accent-cyan rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-300"></div>
+                        <!-- Placeholder Profile Image -->
+                        <img src="https://placehold.co/400x400/1E293B/0EA5E9?text=Alex+Morgan" alt="Alex Morgan" class="relative rounded-2xl w-full max-w-xs object-cover border border-slate-700 shadow-2xl">
+                    </div>
+                </div>
+
+                <!-- Text bio content -->
+                <div class="md:col-span-7 space-y-4 text-slate-300">
+                    <p class="text-lg leading-relaxed text-slate-200 font-medium">
+                        <!-- CUSTOMIZE: Insert your 2-3 sentence background here -->
+                        I am a first-year engineering student fascinated by modern design methodologies and smart systems. My goal is to combine core fundamentals with emerging digital tools to build sustainable solutions.
+                    </p>
+                    <p class="text-sm leading-relaxed text-slate-400">
+                        Ever since designing my first high-school robotics chassis, I knew engineering was my path. Now in my first year of undergraduate studies, I am building a rigorous foundation in physics, calculus, computer-aided design (CAD), and programming.
+                    </p>
+                    <p class="text-sm leading-relaxed text-slate-400">
+                        I actively seek opportunities where I can apply my computational skills, eagerness to learn, and team-first mindset to practical engineering challenges and collaborative design projects.
+                    </p>
+
+                    <!-- Key highlights -->
+                    <div class="pt-4 grid grid-cols-2 gap-3 text-xs font-medium">
+                        <div class="flex items-center space-x-2 text-slate-300">
+                            <i class="fa-solid fa-graduation-cap text-accent-blue"></i>
+                            <span>Mechanical / Systems Interest</span>
+                        </div>
+                        <div class="flex items-center space-x-2 text-slate-300">
+                            <i class="fa-solid fa-code text-accent-blue"></i>
+                            <span>Python & MATLAB Beginner</span>
+                        </div>
+                        <div class="flex items-center space-x-2 text-slate-300">
+                            <i class="fa-solid fa-microchip text-accent-blue"></i>
+                            <span>Rapid Prototyping Fanatic</span>
+                        </div>
+                        <div class="flex items-center space-x-2 text-slate-300">
+                            <i class="fa-solid fa-robot text-accent-blue"></i>
+                            <span>AI-Assisted Learner</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects" class="py-20 border-t border-slate-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <h2 class="text-xs font-semibold text-accent-blue tracking-widest uppercase mb-2">Hands-on Experience</h2>
+                <p class="text-3xl font-bold text-white mb-4">Academic Projects & Labs</p>
+                <p class="text-slate-400 text-sm max-w-xl mx-auto">Highlighting technical problem-solving, design iteration, and teamwork from my foundational engineering courses.</p>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="flex justify-center space-x-2 mb-10">
+                <button onclick="filterProjects('all')" class="filter-btn active px-4 py-1.5 rounded-full text-xs font-semibold bg-accent-blue text-white transition-all">All</button>
+                <button onclick="filterProjects('cad')" class="filter-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-navy-800 border border-slate-700 text-slate-300 hover:text-white transition-all">CAD & Design</button>
+                <button onclick="filterProjects('code')" class="filter-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-navy-800 border border-slate-700 text-slate-300 hover:text-white transition-all">Coding / Simulation</button>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <!-- PROJECT 1 -->
+                <div class="project-card cad bg-navy-800/60 rounded-xl border border-slate-700/60 overflow-hidden hover:border-accent-blue/50 transition-all duration-300 hover:-translate-y-1 flex flex-col">
+                    <img src="https://placehold.co/600x350/1E293B/0EA5E9?text=Truss+Design+CAD" alt="Truss Design" class="w-full h-44 object-cover">
+                    <div class="p-5 flex-1 flex flex-col">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-xs font-semibold text-accent-cyan bg-accent-cyan/10 px-2 py-0.5 rounded">Engineering Design 101</span>
+                            <span class="text-xs text-slate-400">Fall 2025</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Optimized Bridge Truss Prototype</h3>
+                        <p class="text-slate-400 text-xs mb-4 leading-relaxed flex-1">
+                            Engineered a lightweight CAD model subjected to simulated static load constraints. Reduced component weight by 15% through iterative finite element testing.
+                        </p>
+                        <div class="flex flex-wrap gap-1.5 mb-4">
+                            <span class="text-[10px] px-2 py-0.5 bg-slate-700 text-slate-300 rounded">SolidWorks</span>
+                            <span class="text-[10px] px-2 py-0.5 bg-slate-700 text-slate-300 rounded">FEA Simulation</span>
+                            <span class="text-[10px] px-2 py-0.5 bg-slate-700 text-slate-300 rounded">3D Printing</span>
+                        </div>
+                        <a href="#" onclick="event.preventDefault(); alert('CUSTOMIZE: Link to project report or CAD files');" class="text-xs text-accent-blue hover:text-sky-400 font-semibold inline-flex items-center space-x-1">
+                            <span>View Documentation</span>
+                            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- PROJECT 2 -->
+                <div class="project-card code bg-navy-800/60 rounded-xl border border-slate-700/60 overflow-hidden hover:border-accent-blue/50 transition-all duration-300 hover:-translate-y-1 flex flex-col">
+                    <img src="https://placehold.co/600x350/1E293B/06B6D4?text=Python+Trajectory+Simulator" alt="Python Simulator" class="w-full h-44 object-cover">
+                    <div class="p-5 flex-1 flex flex-col">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-xs font-semibold text-accent-cyan bg-accent-cyan/10 px-2 py-0.5 rounded">Intro to Programming</span>
+                            <span class="text-xs text-slate-400">Winter 2025</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Physics Trajectory Simulator</h3>
+                        <p class="text-slate-400 text-xs mb-4 leading-relaxed flex-1">
+                            Developed a Python script modeling projectile motion under air resistance drag forces. Utilized AI tools to debug numeric integration scripts.
+                        </p>
+                        <div class="flex flex-wrap gap-1.5 mb-4">
+                            <span class="text-[10px] px-2 py-0.5 bg-slate-700 text-slate-300 rounded">Python</span>
+                            <span class="text-[10px] px-2 py-0.5 bg-slate-700 text-slate-300 rounded">Matplotlib</span>
+                            <span class="text-[10px] px-2 py-0.5 bg-slate-700 text-slate-300 rounded">AI Debugging</span>
+                        </div>
+                        <a href="#" onclick="event.preventDefault(); alert('CUSTOMIZE: Link to GitHub repository');" class="text-xs text-accent-blue hover:text-sky-400 font-semibold inline-flex items-center space-x-1">
+                            <span>View Code Repo</span>
+                            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- PROJECT 3 -->
+                <div class="project-card cad bg-navy-800/60 rounded-xl border border-slate-700/60 overflow-hidden hover:border-accent-blue/50 transition-all duration-300 hover:-translate-y-1 flex flex-col">
+                    <img src="https://placehold.co/600x350/1E293B/0EA5E9?text=Water+Filtration+Lab" alt="Water Filtration" class="w-full h-44 object-cover">
+                    <div class="p-5 flex-1 flex flex-col">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-xs font-semibold text-accent-cyan bg-accent-cyan/10 px-2 py-0.5 rounded">Team Design Lab</span>
+                            <span class="text-xs text-slate-400">Spring 2026</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Low-Cost Water Filtration Rig</h3>
+                        <p class="text-slate-400 text-xs mb-4 leading-relaxed flex-1">
+                            Co-designed a modular filtration housing using recycled polymers. Managed project documentation and led physical assembly tests.
+                        </p>
+                        <div class="flex flex-wrap gap-1.5 mb-4">
+                            <span class="text-[10px] px-2 py-0.5 bg-slate-700 text-slate-300 rounded">Prototyping</span>
+                            <span class="text-[10px] px-2 py-0.5 bg-slate-700 text-slate-300 rounded">Technical Writing</span>
+                            <span class="text-[10px] px-2 py-0.5 bg-slate-700 text-slate-300 rounded">Teamwork</span>
+                        </div>
+                        <a href="#" onclick="event.preventDefault(); alert('CUSTOMIZE: Link to lab presentation');" class="text-xs text-accent-blue hover:text-sky-400 font-semibold inline-flex items-center space-x-1">
+                            <span>View Presentation</span>
+                            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section id="skills" class="py-20 bg-navy-800/40 border-t border-slate-800">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-xs font-semibold text-accent-blue tracking-widest uppercase mb-2">Competencies</h2>
+                <p class="text-3xl font-bold text-white mb-2">Skills & Technical Toolkit</p>
+                <p class="text-slate-400 text-sm">Combining traditional core fundamentals with modern tech workflows.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Category 1: Technical & Software -->
+                <div class="bg-navy-800 p-6 rounded-xl border border-slate-700/60">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="p-2 rounded-lg bg-accent-blue/10 text-accent-blue">
+                            <i class="fa-solid fa-laptop-code text-lg"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">Engineering Software & Tools</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div>
+                            <div class="flex justify-between text-xs mb-1">
+                                <span class="text-slate-300">CAD (SolidWorks / Fusion 360)</span>
+                                <span class="text-slate-400">Intermediate</span>
+                            </div>
+                            <div class="w-full bg-slate-700 h-2 rounded-full overflow-hidden">
+                                <div class="bg-accent-blue h-full w-3/4 rounded-full"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs mb-1">
+                                <span class="text-slate-300">Python Programming</span>
+                                <span class="text-slate-400">Working Knowledge</span>
+                            </div>
+                            <div class="w-full bg-slate-700 h-2 rounded-full overflow-hidden">
+                                <div class="bg-accent-blue h-full w-1/2 rounded-full"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs mb-1">
+                                <span class="text-slate-300">MATLAB / Data Analysis</span>
+                                <span class="text-slate-400">Currently Learning</span>
+                            </div>
+                            <div class="w-full bg-slate-700 h-2 rounded-full overflow-hidden">
+                                <div class="bg-accent-blue h-full w-1/3 rounded-full"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 2: AI Literacy Highlight -->
+                <div class="bg-gradient-to-br from-navy-800 to-slate-800 p-6 rounded-xl border border-accent-cyan/30 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 px-3 py-1 bg-accent-cyan/20 text-accent-cyan text-[10px] font-bold uppercase rounded-bl-lg border-l border-b border-accent-cyan/30">
+                        Modern Advantage
+                    </div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="p-2 rounded-lg bg-accent-cyan/10 text-accent-cyan">
+                            <i class="fa-solid fa-brain text-lg"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">AI Literacy & Acceleration</h3>
+                    </div>
+                    <p class="text-xs text-slate-300 mb-4 leading-relaxed">
+                        Responsible integration of generative AI tools to accelerate learning, optimize code syntax, and brainstorm design space iterations.
+                    </p>
+                    <ul class="space-y-2 text-xs text-slate-300">
+                        <li class="flex items-start space-x-2">
+                            <i class="fa-solid fa-check text-accent-cyan mt-0.5"></i>
+                            <span><strong>Prompt Engineering for Code:</strong> Accelerated Python debugging & syntax creation.</span>
+                        </li>
+                        <li class="flex items-start space-x-2">
+                            <i class="fa-solid fa-check text-accent-cyan mt-0.5"></i>
+                            <span><strong>Literature Synthesis:</strong> Utilizing AI assistants to parse dense technical research.</span>
+                        </li>
+                        <li class="flex items-start space-x-2">
+                            <i class="fa-solid fa-check text-accent-cyan mt-0.5"></i>
+                            <span><strong>Verification Rigor:</strong> Validating AI outputs against core mechanics and first principles.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Soft skills tags -->
+            <div class="mt-8 text-center">
+                <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">Core Strengths & Laboratory Skills</p>
+                <div class="flex flex-wrap justify-center gap-2">
+                    <span class="px-3 py-1 bg-navy-800 text-slate-300 text-xs rounded-full border border-slate-700">3D Printing / FDM</span>
+                    <span class="px-3 py-1 bg-navy-800 text-slate-300 text-xs rounded-full border border-slate-700">Technical Documentation</span>
+                    <span class="px-3 py-1 bg-navy-800 text-slate-300 text-xs rounded-full border border-slate-700">Multimeter / Circuits</span>
+                    <span class="px-3 py-1 bg-navy-800 text-slate-300 text-xs rounded-full border border-slate-700">Cross-Functional Teamwork</span>
+                    <span class="px-3 py-1 bg-navy-800 text-slate-300 text-xs rounded-full border border-slate-700">Rapid Prototyping</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CAREER GOALS SECTION -->
+    <section id="goals" class="py-20 border-t border-slate-800">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-xs font-semibold text-accent-blue tracking-widest uppercase mb-2">Vision & Trajectory</h2>
+                <p class="text-3xl font-bold text-white">Career Goals & Roadmap</p>
+            </div>
+
+            <div class="relative border-l-2 border-slate-700 ml-4 md:ml-32 space-y-8">
+                <!-- Milestone 1 -->
+                <div class="relative pl-6">
+                    <span class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-accent-blue border-4 border-navy-900"></span>
+                    <span class="text-xs font-semibold text-accent-blue">Near-Term Goal (Summer 2026)</span>
+                    <h3 class="text-lg font-bold text-white mt-0.5">Engineering Internship / Research Lab</h3>
+                    <p class="text-slate-400 text-xs mt-1 leading-relaxed">
+                        Seeking a hands-on internship in mechanical/systems engineering or an undergraduate research assistantship focusing on sustainable material modeling.
+                    </p>
+                </div>
+
+                <!-- Milestone 2 -->
+                <div class="relative pl-6">
+                    <span class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-slate-600 border-4 border-navy-900"></span>
+                    <span class="text-xs font-semibold text-slate-400">Mid-Term Objective (Years 2-3)</span>
+                    <h3 class="text-lg font-bold text-white mt-0.5">Design Team Leadership & FE Exam</h3>
+                    <p class="text-slate-400 text-xs mt-1 leading-relaxed">
+                        Aiming to take on sub-team leadership in student engineering clubs (e.g., Formula SAE or Robotics) while preparing for Fundamentals of Engineering (FE) certification.
+                    </p>
+                </div>
+
+                <!-- Milestone 3 -->
+                <div class="relative pl-6">
+                    <span class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-slate-600 border-4 border-navy-900"></span>
+                    <span class="text-xs font-semibold text-slate-400">Long-Term Vision</span>
+                    <h3 class="text-lg font-bold text-white mt-0.5">Industry Practice & Graduate Studies</h3>
+                    <p class="text-slate-400 text-xs mt-1 leading-relaxed">
+                        Plan to pursue graduate specialization in computational modeling, applying smart automation to solve clean energy and hardware challenges.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="py-20 bg-navy-800/40 border-t border-slate-800">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-xs font-semibold text-accent-blue tracking-widest uppercase mb-2">Connect</h2>
+                <p class="text-3xl font-bold text-white mb-2">Get In Touch</p>
+                <p class="text-slate-400 text-sm">I am actively seeking internship opportunities, research mentorship, and project collaborations.</p>
+            </div>
+
+            <div class="grid md:grid-cols-12 gap-8">
+                <!-- Direct contact info -->
+                <div class="md:col-span-5 space-y-6">
+                    <div class="flex items-start space-x-4">
+                        <div class="p-3 bg-navy-800 rounded-lg text-accent-blue border border-slate-700">
+                            <i class="fa-solid fa-envelope text-lg"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-slate-400 font-medium">Email Me Directly</p>
+                            <!-- CUSTOMIZE: Your email -->
+                            <a href="mailto:alex.morgan@university.edu" class="text-sm font-semibold text-white hover:text-accent-blue transition-colors">alex.morgan@university.edu</a>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4">
+                        <div class="p-3 bg-navy-800 rounded-lg text-accent-blue border border-slate-700">
+                            <i class="fa-solid fa-location-dot text-lg"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-slate-400 font-medium">Location</p>
+                            <!-- CUSTOMIZE: Your university/location -->
+                            <p class="text-sm font-semibold text-white">Engineering Campus, University City</p>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 flex space-x-3">
+                        <!-- CUSTOMIZE: Social URLs -->
+                        <a href="https://linkedin.com" target="_blank" class="p-2.5 bg-navy-800 text-slate-300 hover:text-white hover:bg-accent-blue rounded-lg border border-slate-700 transition-all">
+                            <i class="fa-brands fa-linkedin-in text-lg"></i>
+                        </a>
+                        <a href="https://github.com" target="_blank" class="p-2.5 bg-navy-800 text-slate-300 hover:text-white hover:bg-accent-blue rounded-lg border border-slate-700 transition-all">
+                            <i class="fa-brands fa-github text-lg"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Contact Form Layout -->
+                <div class="md:col-span-7 bg-navy-800 p-6 rounded-xl border border-slate-700">
+                    <form onsubmit="event.preventDefault(); alert('CUSTOMIZE: Form submission endpoint or integration!');" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-1">Your Name</label>
+                            <input type="text" placeholder="Jane Doe" required class="w-full px-3 py-2 bg-navy-900 border border-slate-700 rounded-lg text-sm text-white focus:outline-none focus:border-accent-blue transition-colors">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-1">Your Email</label>
+                            <input type="email" placeholder="jane@example.com" required class="w-full px-3 py-2 bg-navy-900 border border-slate-700 rounded-lg text-sm text-white focus:outline-none focus:border-accent-blue transition-colors">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-1">Message</label>
+                            <textarea rows="4" placeholder="I'd love to connect regarding..." required class="w-full px-3 py-2 bg-navy-900 border border-slate-700 rounded-lg text-sm text-white focus:outline-none focus:border-accent-blue transition-colors"></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-2.5 bg-accent-blue hover:bg-sky-500 text-white text-sm font-semibold rounded-lg transition-all shadow-lg shadow-accent-blue/20">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-6 border-t border-slate-800 text-center text-xs text-slate-500">
+        <p>© <span id="year"></span> Alex Morgan. Designed for GitHub Pages hosting.</p>
+    </footer>
+
+    <!-- INTERACTIVE JAVASCRIPT LOGIC -->
+    <script>
+        // Set dynamic year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle Logic
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Project Filter Functionality
+        function filterProjects(category) {
+            const cards = document.querySelectorAll('.project-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+
+            // Update button styles
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-accent-blue', 'text-white');
+                btn.classList.add('bg-navy-800', 'text-slate-300');
+            });
+
+            event.target.classList.remove('bg-navy-800', 'text-slate-300');
+            event.target.classList.add('bg-accent-blue', 'text-white');
+
+            // Filter logic
+            cards.forEach(card => {
+                if (category === 'all' || card.classList.contains(category)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
